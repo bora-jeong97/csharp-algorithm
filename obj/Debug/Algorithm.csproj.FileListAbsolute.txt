@@ -1,0 +1,7 @@
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\bin\Debug\Algorithm.exe.config
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\bin\Debug\Algorithm.exe
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\bin\Debug\Algorithm.pdb
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\obj\Debug\Algorithm.csproj.AssemblyReference.cache
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\obj\Debug\Algorithm.exe
+C:\Users\purpl\dev\CsharpAlgorithm\Algorithm\obj\Debug\Algorithm.pdb
