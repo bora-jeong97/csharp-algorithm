@@ -23,22 +23,71 @@ namespace Algorithm
 
         public void Initialize(int size)
         {
+            if (size % 2 == 0)  // 벽으로 싸여있기 위해서는 홀수여야함.
+                return;
+
             _tile = new TileType[size, size];
             _size = size;
 
+
+            GenerateByBinaryTree();
+
+        }
+    
+        void GenerateByBinaryTree()
+        {
+            // Mazes for Programmers
             for (int y = 0; y < _size; y++)
             {
                 for (int x = 0; x < _size; x++)
                 {
-                    if (x == 0 || x == _size - 1 || y == 0 || y == _size - 1)   // 외각인경우
+                    if (x % 2 == 0 || y % 2 == 0)
                         _tile[y, x] = TileType.Wall;
                     else
                         _tile[y, x] = TileType.Empty;
 
                 }
             }
+
+            // 랜덤으로 우측 혹은 아래로 길을 뚫는 작업
+            // Binary Tree Algorithm
+            Random rand = new Random();
+            for (int y = 0; y < _size; y++)
+            {
+                for (int x = 0; x < _size; x++)
+                {
+                    if (x % 2 == 0 || y % 2 == 0)
+                        continue;
+
+                    if (y == _size - 2 && x == _size - 2)
+                        continue;
+
+                    if (y == _size - 2) // 아래 외각 바로 전에 위치할 때는
+                    {
+                        _tile[y, x + 1] = TileType.Empty;   // 무조건 우측으로 가도록 함.
+                        continue;
+                    }
+
+                    if (x == _size - 2) // 오른쪽 외각 바로 전에 위치할 때는
+                    {
+                        _tile[y + 1, x] = TileType.Empty;   // 무조건 아래측으로 가도록 함.
+                        continue;
+                    }
+
+                    if (rand.Next(0, 2) == 0)   // 0~1
+                    {
+                        _tile[y, x + 1] = TileType.Empty;   // 우측
+                    }
+                    else
+                    {
+                        _tile[y + 1, x] = TileType.Empty;   // 아래측
+
+                    }
+
+                }
+            }
         }
-    
+
         public void Render()
         {
             ConsoleColor prevColor = Console.ForegroundColor;   // 초기 색상 저장
