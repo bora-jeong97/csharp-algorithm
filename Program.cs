@@ -13,7 +13,7 @@ namespace Algorithm
             Board board = new Board();
             Player player = new Player();
             board.Initialize(25, player);
-            player.Initialize(1, 1, board.Size - 2, board.Size -2, board);
+            player.Initialize(1, 1, board);
 
             Console.CursorVisible = false; // 커서 안보이게
             const int WAIT_TICK = 1000 / 30; // 경과한 시간이 1/30초보다 작다면 1초가 1000ms
